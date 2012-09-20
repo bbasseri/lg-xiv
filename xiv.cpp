@@ -80,7 +80,7 @@ pthread_t thSpacenav;     // Spacenav control thread
 pthread_t thUDPSlave;     // UDP slave control thread
 pthread_t thPreload;      // Preload image thread
 
-// Drawing 
+// Drawing
 pthread_mutex_t mutexData = PTHREAD_MUTEX_INITIALIZER;    // Mutex protecting the data array
 int w, h, wref, href;
 int ox, oy;
@@ -1220,7 +1220,7 @@ void translate(float stepX, float stepY)
     if (imgCurrent) {
         if (dy < 0) dy = 0;
         else if (dy > imgCurrent->h - h * z) dy = imgCurrent->h - h*z;
-    
+
         if (dx > imgCurrent->w - 10 && !h360)
             dx = imgCurrent->w - 10;
         if (dx / z < -w + 10 && !h360)
@@ -1369,7 +1369,7 @@ void destroy_window()
 // Create the window
 void create_window(bool fs)
 {
-    // Create the 
+    // Create the
     Window root = DefaultRootWindow(display);
     int ww = wref;
     int wh = href;
@@ -1620,6 +1620,9 @@ int main(int argc, char **argv)
                 // Add file to list
                 if (nbfiles < MAX_NBFILES)
                     files[nbfiles++] = strdup(argv[i]);
+            }else{
+                fprintf(stderr, "The command inputed is incorect or the file specified does not exist. \n");
+                exit(0);
             }
         }
     }
@@ -2220,7 +2223,7 @@ int main(int argc, char **argv)
                         next_image(-1);
                     else
                         next_image(-nbfiles / 20);
-                } else if (0 == strcmp(c, "D"))    // Delete image 
+                } else if (0 == strcmp(c, "D"))    // Delete image
                 {
                     if (nbfiles > 0) {
                         unlink(files[idxfile]);

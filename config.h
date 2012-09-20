@@ -26,7 +26,7 @@
 /* #undef HAVE_JPEGLIB_H */
 
 /* Define to 1 if you have the `exif' library (-lexif). */
-/* #undef HAVE_LIBEXIF */
+#define HAVE_LIBEXIF 1
 
 /* Define to 1 if you have the <libexif/exif-data.h> header file. */
 /* #undef HAVE_LIBEXIF_EXIF_DATA_H */
